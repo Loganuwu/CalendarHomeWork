@@ -9,6 +9,10 @@ let hour = d.getHours();
 let minute = d.getMinutes();
 let timeTwelve = hour % 12;
 let aheadTime = hour +1;
+//
+hour -=6
+timeTwelve -=6
+//ADDING FOR SCREENSHOT ONLY
 let behindTime = hour - 1;
 
 
@@ -21,9 +25,11 @@ if (hour == hour && hour <= 17 && hour >= 9){ //Checks if it is the current time
     document.getElementById(`${hour}Event`).style.background = `red`
 }
 
-if(hour > hour-1 && hour > 9 && hour <= 17){
+if(hour > hour-1 && hour >= 9){
     console.log(behindTime);
+    console.log(hour);
     for (let i = hour-1; i > 8; i--) {
+        console.log(i);
         document.getElementById(`${(behindTime = i)}Save`).style.background = `grey` 
         document.getElementById(`${(behindTime = i)}Event`).style.background = `grey`
         
@@ -53,7 +59,7 @@ function saveBtn(time) { // Function to change the html to update classes to cha
     })
 }
 
-// BELOW IS CALLING THE FUNCTION AND INSERTING IT INTO EACH DOCUMENT ID WITH PARAMATERS OF EACH TIME.
+// BELOW IS CALLING THE FUNCTION AND INSERTING IT INTO EACH DOCUMENT ID WITH PARAMATERS OF EACH MILITARY TIME.
 saveBtn(`9`);
 saveBtn(`10`);
 saveBtn(`11`);
