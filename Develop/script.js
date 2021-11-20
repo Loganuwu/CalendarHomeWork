@@ -9,9 +9,10 @@ let hour = d.getHours();
 let minute = d.getMinutes();
 let timeTwelve = hour % 12;
 let aheadTime = hour +1;
-//
-hour -=6
-timeTwelve -=6
+// ALL ABOVE IS VARIABLE FOR THE DATE AND TIME USING BUILT IN JS FUNCTIONS.
+hour -=8
+timeTwelve -=8
+console.log(hour);
 //ADDING FOR SCREENSHOT ONLY
 let behindTime = hour - 1;
 
@@ -25,22 +26,35 @@ if (hour == hour && hour <= 17 && hour >= 9){ //Checks if it is the current time
     document.getElementById(`${hour}Event`).style.background = `red`
 }
 
-if(hour > hour-1 && hour >= 9){
-    console.log(behindTime);
-    console.log(hour);
+
+if (hour > 17) { //This if statement checks if it is past 5PM, if it is then it greys out everything
+    for (let i = 17; i > 8; i--) {
+        document.getElementById(`${(behindTime = i)}Save`).style.background = `grey` 
+        document.getElementById(`${(behindTime = i)}Event`).style.background = `grey`
+        
+    } 
+} else{ // If it is not past 5pm, then go through each item and grey them out individually
     for (let i = hour-1; i > 8; i--) {
-        console.log(i);
         document.getElementById(`${(behindTime = i)}Save`).style.background = `grey` 
         document.getElementById(`${(behindTime = i)}Event`).style.background = `grey`
         
     }
-
 }
 
 
 document.getElementById("currentDay").innerHTML = `${day}, ${month} ${date}. ${year}`
-document.getElementById("timeHour").innerHTML = `It is currently ${timeTwelve}:${minute} PM`
+
+if(hour == 12){ // checks if time is at noon and to now change it to PM, if it before 12 then it is AM, if it is after it is PM
+    document.getElementById("timeHour").innerHTML = `It is currently ${hour}:${minute} PM`
+} else if (hour > 12) {
+    document.getElementById("timeHour").innerHTML = `It is currently ${timeTwelve}:${minute} PM`
+} else {
+    document.getElementById("timeHour").innerHTML = `It is currently ${hour}:${minute} AM`
+}
+
 //Above is all of the script for the dates to display on the page, using integrated Javascript functions for each variable of the current time.
+//---------------------------------------------------------------------------------------------------------------------------------------------
+//BELOW IS FUNCTIONS AND HTML VALUES.
 
 
 
