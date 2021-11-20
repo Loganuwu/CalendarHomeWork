@@ -67,11 +67,28 @@ function saveBtn(time) { // Function to change the html to update classes to cha
         } else {
             document.getElementById(`${time}Save`).innerHTML = '<li id=`${time}Save` class="btn-outline-info">Save</li>'
             console.log(document.getElementById(`${time}Event`).value);
-            event.preventDefault();
+            // event.preventDefault();
+            localStorage.setItem(`${time}plannerEvents`, document.getElementById(`${time}Event`).value)
+            // localStorage.setItem('user', JSON.stringify(document.getElementById(`${time}Event`).value));
+            // localStorage.getItem('user');
+            // localStorage.getItem('plannerEvents')
+            // console.log(localStorage.getItem(`${time}plannerEvents`));
+            let storagePlanner = localStorage.getItem(`${time}plannerEvents`)
+            document.getElementById(`${time-1}Event`).innerHTML = `${storagePlanner}`
+            console.log(localStorage.getItem(`${time}plannerEvents`));
+
+
+
+
         }
+
+
 
     })
 }
+
+
+    
 
 // BELOW IS CALLING THE FUNCTION AND INSERTING IT INTO EACH DOCUMENT ID WITH PARAMATERS OF EACH MILITARY TIME.
 saveBtn(`9`);
