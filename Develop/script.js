@@ -10,10 +10,7 @@ let minute = d.getMinutes();
 let timeTwelve = hour % 12;
 let aheadTime = hour +1;
 // ALL ABOVE IS VARIABLE FOR THE DATE AND TIME USING BUILT IN JS FUNCTIONS.
-hour -=8
-timeTwelve -=8
-console.log(hour);
-//ADDING FOR SCREENSHOT ONLY
+
 let behindTime = hour - 1;
 
 
@@ -56,6 +53,12 @@ if(hour == 12){ // checks if time is at noon and to now change it to PM, if it b
 //---------------------------------------------------------------------------------------------------------------------------------------------
 //BELOW IS FUNCTIONS AND HTML VALUES.
 
+for (let i = 9; i < 17; i++) {
+
+    let updater = localStorage.getItem(`${i}plannerEvents`)
+    document.getElementById(`${i}Event`).value = updater
+}
+
 
 
 function saveBtn(time) { // Function to change the html to update classes to change to blue once completed and to collect the input in the text box for that time.
@@ -67,15 +70,11 @@ function saveBtn(time) { // Function to change the html to update classes to cha
         } else {
             document.getElementById(`${time}Save`).innerHTML = '<li id=`${time}Save` class="btn-outline-info">Save</li>'
             console.log(document.getElementById(`${time}Event`).value);
-            // event.preventDefault();
+            
             localStorage.setItem(`${time}plannerEvents`, document.getElementById(`${time}Event`).value)
-            // localStorage.setItem('user', JSON.stringify(document.getElementById(`${time}Event`).value));
-            // localStorage.getItem('user');
-            // localStorage.getItem('plannerEvents')
-            // console.log(localStorage.getItem(`${time}plannerEvents`));
-            let storagePlanner = localStorage.getItem(`${time}plannerEvents`)
-            document.getElementById(`${time-1}Event`).innerHTML = `${storagePlanner}`
-            console.log(localStorage.getItem(`${time}plannerEvents`));
+            console.log(localStorage);
+            
+
 
 
 
@@ -85,8 +84,8 @@ function saveBtn(time) { // Function to change the html to update classes to cha
 
 
     })
-}
 
+}
 
     
 
