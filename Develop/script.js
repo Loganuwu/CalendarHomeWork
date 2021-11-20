@@ -7,17 +7,25 @@ let day = days[d.getDay()];
 let month = months[d.getMonth()];
 let hour = d.getHours();
 let minute = d.getMinutes();
+let timeTwelve = hour % 12;
+let aheadTime = hour +1;
 
-if (hour > 12){
-    hour = hour % 12;
-}
+console.log(timeTwelve);
 
 if(minute < 10){
     minute = "0" + minute;
 }
 
+if (hour == hour){
+    document.getElementById('9amSave').style.background = `red` 
+    document.getElementById("9amEvent").style.background = `red`
+}
+
+if(aheadTime > hour){
+
+}
 document.getElementById("currentDay").innerHTML = `${day}, ${month} ${date}. ${year}`
-document.getElementById("timeHour").innerHTML = `It is currently ${hour}:${minute} PM`
+document.getElementById("timeHour").innerHTML = `It is currently ${timeTwelve}:${minute} PM`
 //Above is all of the script for the dates to display on the page, using integrated Javascript functions for each variable of the current time.
 
 
