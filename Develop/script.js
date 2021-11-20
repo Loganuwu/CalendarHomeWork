@@ -9,29 +9,29 @@ let hour = d.getHours();
 let minute = d.getMinutes();
 let timeTwelve = hour % 12;
 let aheadTime = hour +1;
-
-console.log(timeTwelve);
-hour = hour - 5;
 let behindTime = hour - 1;
-console.log(hour);
+
+
 if(minute < 10){
     minute = "0" + minute;
 }
 
-if (hour == hour){
+if (hour == hour && hour <= 17 && hour >= 9){ //Checks if it is the current time withing the 8 hour time frame and make current event red.
     document.getElementById(`${hour}Save`).style.background = `red` 
     document.getElementById(`${hour}Event`).style.background = `red`
 }
 
-if(hour > hour-1){
+if(hour > hour-1 && hour > 9 && hour <= 17){
     console.log(behindTime);
-    document.getElementById(`${behindTime}Save`).style.background = `grey` 
-    document.getElementById(`${behindTime}Event`).style.background = `grey`
+    for (let i = hour-1; i > 8; i--) {
+        document.getElementById(`${(behindTime = i)}Save`).style.background = `grey` 
+        document.getElementById(`${(behindTime = i)}Event`).style.background = `grey`
+        
+    }
+
 }
 
-if(aheadTime > hour){
 
-}
 document.getElementById("currentDay").innerHTML = `${day}, ${month} ${date}. ${year}`
 document.getElementById("timeHour").innerHTML = `It is currently ${timeTwelve}:${minute} PM`
 //Above is all of the script for the dates to display on the page, using integrated Javascript functions for each variable of the current time.
