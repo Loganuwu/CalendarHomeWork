@@ -11,14 +11,22 @@ let timeTwelve = hour % 12;
 let aheadTime = hour +1;
 
 console.log(timeTwelve);
-
+hour = hour - 5;
+let behindTime = hour - 1;
+console.log(hour);
 if(minute < 10){
     minute = "0" + minute;
 }
 
 if (hour == hour){
-    document.getElementById('9amSave').style.background = `red` 
-    document.getElementById("9amEvent").style.background = `red`
+    document.getElementById(`${hour}Save`).style.background = `red` 
+    document.getElementById(`${hour}Event`).style.background = `red`
+}
+
+if(hour > hour-1){
+    console.log(behindTime);
+    document.getElementById(`${behindTime}Save`).style.background = `grey` 
+    document.getElementById(`${behindTime}Event`).style.background = `grey`
 }
 
 if(aheadTime > hour){
@@ -46,13 +54,13 @@ function saveBtn(time) { // Function to change the html to update classes to cha
 }
 
 // BELOW IS CALLING THE FUNCTION AND INSERTING IT INTO EACH DOCUMENT ID WITH PARAMATERS OF EACH TIME.
-saveBtn(`9am`);
-saveBtn(`10am`);
-saveBtn(`11am`);
-saveBtn(`12pm`);
-saveBtn(`1pm`);
-saveBtn(`2pm`);
-saveBtn(`3pm`);
-saveBtn(`4pm`);
-saveBtn(`5pm`);
+saveBtn(`9`);
+saveBtn(`10`);
+saveBtn(`11`);
+saveBtn(`12`);
+saveBtn(`13`);
+saveBtn(`14`);
+saveBtn(`15`);
+saveBtn(`16`);
+saveBtn(`17`);
 
